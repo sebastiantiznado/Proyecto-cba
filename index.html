@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Buscaminas de Seba: clásico, rápido y con récords locales.">
+  <title>Buscaminas de Seba</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="pixel-bg" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a href="#" class="brand">
+        <span class="brand__mine">💣</span>
+        <span>
+          <strong>Buscaminas</strong>
+          <small>de Seba</small>
+        </span>
+      </a>
+      <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema">☀️</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero__copy">
+        <span class="eyebrow">SEBA'S ARCADE · CLÁSICO Nº 01</span>
+        <h1>Buscaminas<br><span>de Seba.</span></h1>
+        <p>
+          Limpia el tablero sin tocar ninguna mina. Marca las sospechosas, usa los números
+          como pistas y trata de romper tu propio récord.
+        </p>
+      </div>
+
+      <div class="seba-badge">
+        <div class="seba-badge__avatar">S</div>
+        <div>
+          <span>Hecho para</span>
+          <strong>Seba</strong>
+          <small>“Una mina menos, una victoria más.”</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="game-shell">
+      <aside class="side-panel card">
+        <div class="panel-title">
+          <span class="eyebrow">CONFIGURACIÓN</span>
+          <h2>Elige tu partida</h2>
+        </div>
+
+        <div class="difficulty-list">
+          <button class="difficulty-btn active" data-level="beginner">
+            <span>🙂</span>
+            <div>
+              <strong>Principiante</strong>
+              <small>9 × 9 · 10 minas</small>
+            </div>
+          </button>
+
+          <button class="difficulty-btn" data-level="intermediate">
+            <span>😎</span>
+            <div>
+              <strong>Intermedio</strong>
+              <small>16 × 16 · 40 minas</small>
+            </div>
+          </button>
+
+          <button class="difficulty-btn" data-level="expert">
+            <span>🔥</span>
+            <div>
+              <strong>Experto</strong>
+              <small>16 × 30 · 99 minas</small>
+            </div>
+          </button>
+        </div>
+
+        <button id="newGameBtn" class="primary-btn">↻ Nueva partida</button>
+
+        <div class="rules">
+          <span class="eyebrow">CÓMO JUGAR</span>
+          <div class="rule"><kbd>Click</kbd><span>Descubrir casilla</span></div>
+          <div class="rule"><kbd>Click der.</kbd><span>Poner bandera</span></div>
+          <div class="rule"><kbd>2× click</kbd><span>Abrir alrededor</span></div>
+        </div>
+
+        <div class="record-box">
+          <span>🏆 Mejor tiempo</span>
+          <strong id="bestTime">—</strong>
+          <small id="bestLabel">Principiante</small>
+        </div>
+      </aside>
+
+      <section class="game-card card">
+        <div class="game-header">
+          <div class="counter-box">
+            <span>MINAS</span>
+            <strong id="mineCounter">010</strong>
+          </div>
+
+          <button id="faceBtn" class="face-btn" title="Nueva partida" aria-label="Nueva partida">🙂</button>
+
+          <div class="counter-box counter-box--right">
+            <span>TIEMPO</span>
+            <strong id="timer">000</strong>
+          </div>
+        </div>
+
+        <div class="status-strip">
+          <span id="statusText">Haz tu primera jugada, Seba 👀</span>
+          <span id="progressText">0%</span>
+        </div>
+
+        <div class="board-frame">
+          <div id="board" class="board" role="grid" aria-label="Tablero de buscaminas"></div>
+        </div>
+
+        <div class="mobile-help">
+          <strong>En celular:</strong> toca para abrir y mantén presionado para poner una bandera.
+        </div>
+      </section>
+    </section>
+
+    <section class="stats-section">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">RÉCORDS DE SEBA</span>
+          <h2>Tu historial local</h2>
+        </div>
+        <button id="clearRecordsBtn" class="text-btn">Borrar récords</button>
+      </div>
+
+      <div class="record-grid">
+        <article class="record-card">
+          <span>🙂 Principiante</span>
+          <strong id="recordBeginner">—</strong>
+          <small>9 × 9 · 10 minas</small>
+        </article>
+        <article class="record-card">
+          <span>😎 Intermedio</span>
+          <strong id="recordIntermediate">—</strong>
+          <small>16 × 16 · 40 minas</small>
+        </article>
+        <article class="record-card">
+          <span>🔥 Experto</span>
+          <strong id="recordExpert">—</strong>
+          <small>16 × 30 · 99 minas</small>
+        </article>
+      </div>
+    </section>
+
+    <section class="seba-section card">
+      <div class="seba-section__icon">S</div>
+      <div>
+        <span class="eyebrow">SEBA'S ARCADE</span>
+        <h2>Este rincón es de Seba.</h2>
+        <p>
+          Buscaminas de Seba guarda tus mejores tiempos directamente en este navegador.
+          Sin cuentas, sin anuncios y sin cosas raras: solo estrategia, banderas y minas.
+        </p>
+      </div>
+      <div class="seba-pixel">▓▒░</div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <strong>Buscaminas de Seba</strong>
+    <span>Hecho para jugar una partida rápida… o veinte.</span>
+  </footer>
+
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal__card">
+      <div id="modalIcon" class="modal__icon">🏆</div>
+      <span class="eyebrow">SEBA'S ARCADE</span>
+      <h2 id="modalTitle">¡Ganaste!</h2>
+      <p id="modalText"></p>
+      <div class="modal__actions">
+        <button id="playAgainBtn" class="primary-btn">Jugar otra vez</button>
+        <button id="closeModalBtn" class="secondary-btn">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
